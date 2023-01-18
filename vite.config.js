@@ -9,5 +9,5 @@ export default defineConfig({
 		react(), 
 		viteSvgr(viteSvgrConfigs)
 	],
-	base: "/leo-react-app"
+	base: "/clone-cats"
 });
