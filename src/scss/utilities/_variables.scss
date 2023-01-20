@@ -19,21 +19,18 @@ $rfs-breakpoint: map-get(map-get($mediaQuery, sizes), xl);
 // UI
 $grid: (
     containerDefault: 1320px,
-    containerXxl: 1140px,
-    containerXl: 960px,
-    containerLg: 720px,
-    containerMd: 540px,
     gutter: 30px
 );
 $fontSizes: (
     h1: 7.8rem,
-    body: 1.8rem
+    body: 1.6rem,
+    bodySm: 1.4rem
 );
 $colors: (
     primary: rgba(0, 178, 255, 0.9),
 	primaryDark: #0085FF,
     supportDark1: #000,
-    supportDark2: #171717,
+    supportDark2: #333,
     supportDark3: #171823,
     supportLight1: #FFF,
     supportLight2: #E9F0F4,

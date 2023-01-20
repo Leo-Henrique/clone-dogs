@@ -1,9 +1,13 @@
 body {
-    @include font-size(map-get($fontSizes, body));
+    font-size: map-get($fontSizes, body);
     line-height: 1.5;
     font-weight: 400;
-    font-family: "Poppins", sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
 	color: map-get($colors, supportLight2);
+
+    @include breakpoint(sm) {
+        font-size: map-get($fontSizes, bodySm);
+    }
 }
 h1 {
     @include font-size(map-get($fontSizes, h1));
