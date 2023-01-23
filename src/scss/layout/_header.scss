@@ -1,0 +1,54 @@
+.header {
+    $paddingAnchor: 2rem;
+    width: 100%;
+    position: fixed;
+    inset: auto 0;
+    z-index: map-get($zIndex, header);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: map-get($colors, supportLight1);
+
+    svg {
+        max-width: 100%;
+        display: block;
+        width: 30px;
+        height: auto;
+    }
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        > a {
+            padding: $paddingAnchor 0;
+        }
+    }
+    &__logo {
+        display: block;
+        padding-right: $paddingAnchor;
+
+        path {
+            @include transition("button", fill);
+        }
+        @include desktop {
+            &:hover {
+                fill: map-get($colors, primary);
+            }
+        }
+        &:active path {
+            fill: map-get($colors, primaryLight);
+        }
+    }
+    &__login {
+        padding-left: $paddingAnchor;
+        display: flex;
+        align-items: center;
+        column-gap: 1rem;
+
+        @include state("button", (
+            default: (color: map-get($colors, supportDark2)),
+            hover: (color: map-get($colors, supportDark1)),
+            active: (color: map-get($colors, supportDark3))
+        ));
+    }
+
+}

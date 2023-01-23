@@ -27,11 +27,12 @@ $fontSizes: (
     bodySm: 1.4rem
 );
 $colors: (
-    primary: rgba(0, 178, 255, 0.9),
-	primaryDark: #0085FF,
+	primaryLight: lighten(#FFBB11, 15%),
+    primary: #FFBB11,
+	primaryDark: darken(#FFBB11, 15%),
     supportDark1: #000,
     supportDark2: #333,
-    supportDark3: #171823,
+    supportDark3: lighten(#333, 15%),
     supportLight1: #FFF,
     supportLight2: #E9F0F4,
     success: #01CC88,
@@ -49,4 +50,7 @@ $transitions: (
 		duration: 200ms,
 		timing-function: ease-in-out
 	),
+);
+$zIndex: (
+    header: 10
 );
