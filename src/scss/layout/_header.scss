@@ -22,26 +22,27 @@
             padding: $paddingAnchor 0;
         }
     }
-    &__logo {
-        display: block;
-        padding-right: $paddingAnchor;
-
+    &__logo,
+    &__login {
+        @include state((
+            default: color("supportDark2"),
+            hover: color("primary"),
+            active: color("primaryLight")
+        ), color);
         @include state((
             default: color("supportDark2"),
             hover: color("primary"),
             active: color("primaryLight")
         ), fill);
     }
+    &__logo {
+        display: block;
+        padding-right: $paddingAnchor;
+    }
     &__login {
         padding-left: $paddingAnchor;
         display: flex;
         align-items: center;
         column-gap: 1rem;
-
-        @include state((
-            default: color("supportDark2"),
-            hover: color("supportDark1"),
-            active: color("supportDark3")
-        ), color);
     }
 }
