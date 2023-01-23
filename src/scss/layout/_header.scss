@@ -2,16 +2,14 @@
     $paddingAnchor: 2rem;
     width: 100%;
     position: fixed;
-    inset: auto 0;
+    inset: 0 0 auto;
     z-index: map-get($zIndex, header);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     background-color: color("supportLight1");
 
     svg {
-        max-width: 100%;
-        display: block;
+        @include responsiveSVG;
         width: 30px;
-        height: auto;
     }
     &__container {
         display: flex;

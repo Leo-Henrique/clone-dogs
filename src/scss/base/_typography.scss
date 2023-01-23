@@ -3,7 +3,7 @@ body {
     line-height: 1.5;
     font-weight: 400;
     font-family: Helvetica, Arial, sans-serif;
-	color: color("supportLight2");
+	color: color("supportDark2");
 
     @include breakpoint(sm) {
         font-size: fontSize("bodySm");

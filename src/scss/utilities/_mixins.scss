@@ -81,3 +81,8 @@
     margin-left: auto;
     margin-right: auto;
 }
+@mixin responsiveSVG {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}

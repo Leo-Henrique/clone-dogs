@@ -37,7 +37,7 @@ $variationsColors: (
 	primaryDark: darken(map-get($accentColors, primary), 15%),
     supportDark1: #000,
     supportDark2: #333,
-    supportDark3: lighten(#333, 15%),
+    supportDark3: lighten(#333, 20%),
     supportLight1: #FFF,
     supportLight2: #E9F0F4,
 );
