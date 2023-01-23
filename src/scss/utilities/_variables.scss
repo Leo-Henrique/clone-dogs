@@ -26,18 +26,20 @@ $fontSizes: (
     body: 1.6rem,
     bodySm: 1.4rem
 );
-$colors: (
-	primaryLight: lighten(#FFBB11, 15%),
+$accentColors: (
     primary: #FFBB11,
-	primaryDark: darken(#FFBB11, 15%),
+    success: #01CC88,
+    warning: #FFC107,
+    danger: #DC3545
+);
+$colors: (
+	primaryLight: lighten(map-get($accentColors, primary), 15%),
+	primaryDark: darken(map-get($accentColors, primary), 15%),
     supportDark1: #000,
     supportDark2: #333,
     supportDark3: lighten(#333, 15%),
     supportLight1: #FFF,
     supportLight2: #E9F0F4,
-    success: #01CC88,
-    warning: #FFC107,
-    danger: #DC3545
 );
 
 // general
