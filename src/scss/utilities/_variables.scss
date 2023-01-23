@@ -32,7 +32,7 @@ $accentColors: (
     warning: #FFC107,
     danger: #DC3545
 );
-$colors: (
+$variationsColors: (
 	primaryLight: lighten(map-get($accentColors, primary), 15%),
 	primaryDark: darken(map-get($accentColors, primary), 15%),
     supportDark1: #000,
