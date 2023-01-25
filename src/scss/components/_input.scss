@@ -1,0 +1,37 @@
+.input {
+    margin-bottom: 1.6rem;
+
+    &__label {
+        display: block;
+        padding: 0.8rem;
+    }
+    &__field {
+        $statePrimary: (
+            border-color: ("primary"),
+            background-color: ("supportLight1"),
+            box-shadow: 0 0 0 3px color("primaryLight2"),
+        );
+
+        display: block;
+        width: 100%;
+        padding: 1.2rem;
+        border-radius: 8px;
+        
+        @include state((
+            default: (
+                opacity: initial,
+                box-shadow: initial,
+                background-color: color("supportLight2"),
+                border: 1px solid color("supportLight2"),
+            ),
+            hover: $statePrimary,
+            focus: $statePrimary,
+        ));
+        @include transition("button", box-shadow, opacity);
+    }
+    &__error {
+        color: color("danger");
+        font-size: fontSize("bodySm");
+        margin-top: 0.4rem;
+    }
+}

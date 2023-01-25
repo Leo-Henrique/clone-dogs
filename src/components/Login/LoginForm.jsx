@@ -1,12 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Input from "../Form/Input";
+import Button from "../Form/Button";
 
 export default function LoginForm() {
-    const form = {
-        username: "",
-        password: "",
+    const fields = {
+        username: {
+            label: "Usuário",
+            type: "text",
+        },
+        password: {
+            label: "Senha",
+            type: "password",
+        }
     };
-    const [login, setLogin] = React.useState(form);
+    const [login, setLogin] = React.useState(() => {
+        let form;
+        
+        Object.keys(fields).forEach(id => form = { ...form, [id]: "" });
+        return form;
+    });
     const handleChange = ({ target: { value, id } }) => {
         setLogin({ ...login, [id]: value });
     };
@@ -20,7 +33,8 @@ export default function LoginForm() {
         const res = await fetch(api, options);
         const data = await res.json();
 
-        console.log(data);
+        // console.log
+
     };
 
     return (
@@ -28,19 +42,18 @@ export default function LoginForm() {
             <h1>Entrar</h1>
 
             <form>
-                {Object.keys(form).map((id) => (
-                    <input
-                        key={id}
-                        id={id}
-                        name={id}
-                        placeholder={id}
-                        onChange={handleChange}
-                    />
+                {Object.keys(fields).map(id => (
+                    <Input key={id} 
+                    id={id}
+                    name={id}
+                    label={fields[id].label}
+                    type={fields[id].type}
+                    onChange={handleChange} />
                 ))}
 
-                <button type="button" onClick={handleSubmit}>
+                <Button type="button" onClick={handleSubmit}>
                     Entrar
-                </button>
+                </Button>
             </form>
 
             <Link to="/login/register">Cadastre-se</Link>

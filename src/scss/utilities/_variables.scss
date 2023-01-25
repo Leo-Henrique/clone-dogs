@@ -7,8 +7,8 @@ $mediaQuery: (
         md: 767.98,
         lg: 991.98,
         xl: 1199.98,
-        xxl: 1399.98
-    )
+        xxl: 1399.98,
+    ),
 );
 
 // rfs config
@@ -19,40 +19,43 @@ $rfs-breakpoint: map-get(map-get($mediaQuery, sizes), xl);
 // UI
 $grid: (
     containerDefault: 1320px,
-    gutter: 30px
+    gutter: 30px,
 );
 $fontSizes: (
     h1: 7.8rem,
     body: 1.6rem,
-    bodySm: 1.4rem
+    bodySm: 1.4rem,
 );
 $accentColors: (
-    primary: #FFBB11,
-    success: #01CC88,
-    warning: #FFC107,
-    danger: #DC3545
+    primary: #FB1,
+    success: #01cc88,
+    warning: #ffc107,
+    danger: #dc3545,
 );
 $variationsColors: (
-	primaryLight: lighten(map-get($accentColors, primary), 15%),
-	primaryDark: darken(map-get($accentColors, primary), 15%),
+    primaryLight2: #FEA,
+    primaryLight1: lighten(map-get($accentColors, primary), 15%),
+    primaryDark: darken(map-get($accentColors, primary), 15%),
     supportDark1: #000,
     supportDark2: #333,
-    supportDark3: lighten(#333, 20%),
-    supportLight1: #FFF,
-    supportLight2: #E9F0F4,
+    supportDark3: darken(#333, 20%),
+    supportDark4: #764701,
+    supportLight1: #fff,
+    supportLight2: #eee,
+    supportLight3: #e9f0f4,
 );
 
 // general
 $transitions: (
-	global: (
-		duration: 300ms,
-		timing-function: ease-in-out
-	),
-	button: (
-		duration: 200ms,
-		timing-function: ease-in-out
-	),
+    global: (
+        duration: 300ms,
+        timing-function: ease-in-out,
+    ),
+    button: (
+        duration: 200ms,
+        timing-function: ease-in-out,
+    ),
 );
 $zIndex: (
-    header: 10
+    header: 10,
 );

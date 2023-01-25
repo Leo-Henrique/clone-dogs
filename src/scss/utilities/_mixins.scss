@@ -71,6 +71,11 @@
                 &:active #{$isSVG} {
                     #{$property}: $value;
                 }
+            } @else if $state == focus {
+                &:focus #{$isSVG} {
+                    outline: none;
+                    #{$property}: $value;
+                }
             }
         }
     }
