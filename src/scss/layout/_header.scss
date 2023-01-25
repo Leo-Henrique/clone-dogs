@@ -24,13 +24,13 @@
     &__login {
         @include state((
             default: color("supportDark2"),
-            hover: color("primary"),
-            active: color("primaryLight")
+            hover: color("primaryLight"),
+            active: color("primary")
         ), color);
         @include state((
             default: color("supportDark2"),
-            hover: color("primary"),
-            active: color("primaryLight")
+            hover: color("primaryLight"),
+            active: color("primary")
         ), fill);
     }
     &__logo {
