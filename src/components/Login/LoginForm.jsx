@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Input from "../Form/Input";
 import Button from "../Form/Button";
 import useForm from "../../hooks/useForm";
+import { UserContext } from "../../UserContext";
 
 export default function LoginForm() {
     const fields = {
@@ -17,21 +18,23 @@ export default function LoginForm() {
             state: useForm(),
         },
     };
-
-    const handleSubmit = async () => {
-        const inputs = Object.values(fields);
-        const validations = inputs.map(input => input.state.submit());
+    const { userLogin } = React.useContext(UserContext);
+    const handleSubmit = () => {
+        const validations = Object.values(fields).map((input) =>
+            input.state.submit()
+        );
 
         if (!validations.includes(false)) {
-            const api = "https://dogsapi.origamid.dev/json/jwt-auth/v1/token";
-            const options = {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(),
-            };
-            const res = await fetch(api, options);
-            const data = await res.json();
+            const body = () => {
+                let body = {};
 
+                Object.keys(fields).forEach((key) => {
+                    body[key] = fields[key].state.value;
+                });
+                return body;
+            };
+
+            userLogin(body())
         }
     };
 
@@ -40,7 +43,7 @@ export default function LoginForm() {
             <h1>Entrar</h1>
 
             <form>
-                {Object.keys(fields).map(id => (
+                {Object.keys(fields).map((id) => (
                     <Input
                         key={id}
                         id={id}
