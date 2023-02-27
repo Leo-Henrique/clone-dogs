@@ -4,7 +4,6 @@ import Input from "../Form/Input";
 import Button from "../Form/Button";
 import useForm from "../../hooks/useForm";
 import { UserContext } from "../../UserContext";
-import useAnimate from "../../hooks/useAnimate";
 
 export default function LoginForm() {
     const fields = {
@@ -38,8 +37,6 @@ export default function LoginForm() {
             userLogin(body());
         }
     };
-
-    useAnimate();
 
     return (
         <section data-animate="fadeDown">
