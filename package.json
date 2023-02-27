@@ -10,8 +10,8 @@
     },
     "dependencies": {
         "history": "^5.3.0",
-        "leo-css-reset": "^1.0.0",
-        "normalize.css": "^8.0.1",
+        "leo-animate.js": "^1.0.3",
+        "leo-reset.css": "^1.0.4",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.6.2",
