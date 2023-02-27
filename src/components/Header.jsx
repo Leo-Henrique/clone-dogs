@@ -5,13 +5,15 @@ import SVGUser from "../assets/icons/user.svg";
 import { UserContext } from "../UserContext";
 
 export default function Header() {
-    const { data } = React.useContext(UserContext);
+    const { data, userLogout } = React.useContext(UserContext);
     const User = () => {
         if (data)
             return (
                 <Link className="header__login"
                 to="/account">
                     <span>{data.nome}</span>
+
+                    <button onClick={userLogout}>Sair</button>
 
                     <span>
                         <SVGUser />

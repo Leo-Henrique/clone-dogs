@@ -1,5 +1,5 @@
 import React from "react";
-import { TOKEN_POST, USER_GET } from "./API";
+import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET } from "./API";
 
 export const UserContext = React.createContext();
 
@@ -26,11 +26,46 @@ export function UserStorage({ children }) {
             getUser(data.token);
         }
     }
+    const userLogout = async () => {
+        setData(null);
+        setError(null);
+        setLoading(false);
+        setLogin(false)
+        localStorage.removeItem("token");
+    }
+
+    React.useEffect(() => {
+        const autoLogin = async () => {
+            const token = localStorage.token;
+
+            if (token) {
+                try {
+                    setError(null);
+                    setLoading(true);
+
+                    const { URL, options } = TOKEN_VALIDATE_POST(token);
+                    const res = await fetch(URL, options);
+
+                    if (!res.ok) throw "O token é inválido!"
+                    await getUser(token);
+
+                } catch (error) {
+                    userLogout();
+                } finally {
+                    setLoading(false);
+                }
+            }
+        }
+
+        autoLogin();
+    }, [])
+
 
     return (
         <UserContext.Provider value={{
             data,
-            userLogin
+            userLogin,
+            userLogout
         }}>
             {children}
         </UserContext.Provider>
