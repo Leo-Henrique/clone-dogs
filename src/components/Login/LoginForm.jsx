@@ -18,7 +18,7 @@ export default function LoginForm() {
             state: useForm(),
         },
     };
-    const { userLogin } = React.useContext(UserContext);
+    const { userLogin, error, loading } = React.useContext(UserContext);
     const handleSubmit = () => {
         const validations = Object.values(fields).map((input) =>
             input.state.submit()
@@ -34,7 +34,7 @@ export default function LoginForm() {
                 return body;
             };
 
-            userLogin(body())
+            userLogin(body());
         }
     };
 
@@ -54,9 +54,13 @@ export default function LoginForm() {
                     />
                 ))}
 
-                <Button type="button" onClick={handleSubmit}>
-                    Entrar
+                <Button type="button" 
+                onClick={handleSubmit}
+                disabled={loading}>
+                    {!loading ? "Entrar" : "Carregando..."}
                 </Button>
+
+                {error && <p>{error}</p>}
             </form>
 
             <Link to="/login/register">Cadastre-se</Link>
