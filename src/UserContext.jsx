@@ -25,7 +25,6 @@ export function UserStorage({ children }) {
 
             const { URL, options } = TOKEN_POST(body);
             const res = await fetch(URL, options);
-            navigate("./account")
 
             if (!res.ok) {
                 const msg = (text) => {
@@ -42,9 +41,9 @@ export function UserStorage({ children }) {
 
             localStorage["token"] = token;
             await getUser(token);
+            navigate("./account")
 
         } catch (error) {
-            console.log(error, error.message)
             setError(error.message);
             setLogin(false);
         } finally {

@@ -4,3 +4,8 @@ body {
 a {
     color: color("supportDark2");
 }
+.error {
+    color: color("danger");
+    margin: 1.6rem 0;
+    font-weight: bold;
+}

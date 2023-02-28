@@ -4,6 +4,7 @@ import Input from "../Form/Input";
 import Button from "../Form/Button";
 import useForm from "../../hooks/useForm";
 import { UserContext } from "../../UserContext";
+import Error from "../Helpers/Error";
 
 export default function LoginForm() {
     const fields = {
@@ -39,10 +40,10 @@ export default function LoginForm() {
     };
 
     return (
-        <section data-animate="fadeDown">
+        <>
             <h1 className="h1">Entrar</h1>
 
-            <form>
+            <form className="login__form">
                 {Object.keys(fields).map((id) => (
                     <Input
                         key={id}
@@ -54,16 +55,30 @@ export default function LoginForm() {
                     />
                 ))}
 
-                <Button type="button" 
-                onClick={handleSubmit}
-                disabled={loading}>
+                <Button
+                    type="button"
+                    onClick={handleSubmit}
+                    disabled={loading}
+                >
                     {!loading ? "Entrar" : "Carregando..."}
                 </Button>
 
-                {error && <p>{error}</p>}
+                <Error error={error} />
             </form>
 
-            <Link to="/login/register">Cadastre-se</Link>
-        </section>
+            <Link className="login__forgotPass" to="/login/password">
+                Esqueci minha senha
+            </Link>
+
+            <section className="login__register">
+                <h2 className="h2">Cadastre-se</h2>
+
+                <p>Ainda sem uma conta? Cadastre-se agora!</p>
+
+                <Link className="btn" to="/login/register">
+                    Cadastre-se
+                </Link>
+            </section>
+        </>
     );
 }

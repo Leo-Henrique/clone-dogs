@@ -1,0 +1,25 @@
+.login {
+    &__form {
+        @include margin-bottom(2rem);
+    }
+
+    &__forgotPass {
+        display: inline-block;
+        color: color("supportDark4");
+        padding: 0.8rem 0;
+        @include margin-bottom(6rem);
+
+        &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: currentColor;
+        }
+    }
+
+    &__register .h2,
+    &__register p {
+        margin-bottom: 2rem;
+    }
+}

@@ -1,10 +1,11 @@
 .btn {
     $shadow: 0 0 2px 3px color("primaryLight2"), 0 0 3px 4px color("primary");
 
+    display: inline-block;
     cursor: pointer;
     border-radius: 8px;
     background-color: color("primary");
-    color: color("supportDark4");
+    color: color("secondary");
     padding: 1.2rem 4rem;
     outline: none;
 

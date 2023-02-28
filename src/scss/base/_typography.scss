@@ -9,13 +9,15 @@ body {
         font-size: fontSize("bodySm");
     }
 }
-.h1 {
-    @include font-size(fontSize("h1"));
+.h1, .h2 {
     font-family: "Spectral", Georgia, serif;
     line-height: 1;
     font-weight: 600;
-    margin: 1rem 0;
     position: relative;
+}
+.h1 {
+    @include font-size(fontSize("h1"));
+    margin: 1rem 0;
 
     &::before {
         content: "";
@@ -27,6 +29,17 @@ body {
         bottom: 5px;
         left: -5px;
         z-index: -1;
+    }
+}
+.h2 {
+    @include font-size(fontSize("h2"));
 
+    &::after {
+        content: "";
+        display: block;
+        width: 48px;
+        height: 8px;
+        background-color: color("supportLight4");
+        border-radius: 32px;
     }
 }
