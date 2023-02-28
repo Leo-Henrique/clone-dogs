@@ -9,8 +9,24 @@ body {
         font-size: fontSize("bodySm");
     }
 }
-h1 {
+.h1 {
     @include font-size(fontSize("h1"));
-    line-height: 1.2;
+    font-family: "Spectral", Georgia, serif;
+    line-height: 1;
     font-weight: 600;
+    margin: 1rem 0;
+    position: relative;
+
+    &::before {
+        content: "";
+        display: block;
+        width: 24px;
+        height: 24px;
+        background-color: color("primary");
+        position: absolute;
+        bottom: 5px;
+        left: -5px;
+        z-index: -1;
+
+    }
 }

@@ -13,7 +13,7 @@ export default function App() {
     const navigation = useNavigate();
 
     React.useEffect(() => {
-        const duration = 200;
+        const duration = 300;
         const options = { transitions: { duration: `${duration}ms` } };
         const links = document.querySelectorAll("a");
         const change = (event) => {

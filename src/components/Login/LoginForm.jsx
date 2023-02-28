@@ -40,7 +40,7 @@ export default function LoginForm() {
 
     return (
         <section data-animate="fadeDown">
-            <h1>Entrar</h1>
+            <h1 className="h1">Entrar</h1>
 
             <form>
                 {Object.keys(fields).map((id) => (
