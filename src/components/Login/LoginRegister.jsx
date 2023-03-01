@@ -5,6 +5,8 @@ import Input from "../Form/Input";
 import Button from "../Form/Button";
 import { USER_POST } from "../../API";
 import body from "../../body";
+import useFetch from "../../hooks/useFetch";
+import Error from "../Helpers/Error";
 
 export default function LoginRegister() {
     const fields = {
@@ -24,12 +26,13 @@ export default function LoginRegister() {
             state: useForm(),
         },
     };
-    const { userLogin, loading } = React.useContext(UserContext);
+    const { userLogin } = React.useContext(UserContext);
+    const { loading, error, request } = useFetch()
     const handleSubmit = async () => {
         const { URL, options } = USER_POST(body(fields))
-        const res = await fetch(URL, options)
+        const { response } = await request(URL, options);
 
-        if (res.ok) userLogin(body(fields));
+        if (response.ok) userLogin(body(fields));
     };
 
     return (
@@ -51,9 +54,11 @@ export default function LoginRegister() {
                 <Button 
                 type="button"
                 onClick={handleSubmit}
-                disabled={loading}>
-                    {!loading ? "Cadastrar" : "Cadastrando..."}
-                </Button>
+                loading={loading}
+                text="Cadastrar"
+                loadingText="Cadastrando..." />
+
+                <Error error={error} />
             </form>
         </>
     );

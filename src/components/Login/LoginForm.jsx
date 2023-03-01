@@ -45,13 +45,12 @@ export default function LoginForm() {
                     />
                 ))}
 
-                <Button
-                    type="button"
-                    onClick={handleSubmit}
-                    disabled={loading}
-                >
-                    {!loading ? "Entrar" : "Carregando..."}
-                </Button>
+                <Button 
+                type="button"
+                onClick={handleSubmit}
+                loading={loading}
+                text="Entrar"
+                loadingText="Carregando..." />
 
                 <Error error={error} />
             </form>

@@ -1,10 +1,12 @@
 import React from "react";
 
-export default function Button({ children, ...residual }) {
+export default function Button({ onClick, loading, text, loadingText,  }) {
     return (
         <button className="btn" 
-        {...residual}>
-            {children}
+        type="button"
+        disabled={loading}
+        onClick={onClick}>
+            {loading ? loadingText : text}
         </button>
     );
 }
