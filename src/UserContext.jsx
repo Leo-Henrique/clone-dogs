@@ -79,6 +79,8 @@ export function UserStorage({ children }) {
                 } finally {
                     setLoading(false);
                 }
+            } else {
+                setLogin(false);
             }
         }
 

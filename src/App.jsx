@@ -3,10 +3,12 @@ import React from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Home from "./components/Home";
+import Home from "./hooks/Home";
 import Login from "./components/Login/Login";
 import { UserStorage } from "./UserContext";
 import LeoAnimate from "leo-animate.js";
+import ProtectedRoute from "./components/Helpers/ProtectedRoute";
+import User from "./components/User/User";
 
 export default function App() {
     const location = useLocation();
@@ -39,7 +41,10 @@ export default function App() {
             <Header />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/login/*" element={<Login />} />
+                <Route path="login/*" element={<Login />} />
+                <Route path="account/*" element={(
+                    <ProtectedRoute><User /></ProtectedRoute>
+                )} />
             </Routes>
             <Footer />
         </UserStorage>
