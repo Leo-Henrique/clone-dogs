@@ -33,7 +33,6 @@ export default function Login() {
         }
         return blockClass;
     }
-    console.log(handleClass())
 
     if (login) return <Navigate to ="/account" />
     return (
@@ -44,7 +43,7 @@ export default function Login() {
             </div>
 
             <section className={`forms__content ${handleClass()}`}
-            data-animate="fadeLeft">
+            data-animate="fadeRight">
                 <Routes>
                     <Route path="/"
                     element={<LoginForm />} />

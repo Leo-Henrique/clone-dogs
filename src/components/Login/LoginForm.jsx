@@ -5,6 +5,7 @@ import Button from "../Form/Button";
 import useForm from "../../hooks/useForm";
 import { UserContext } from "../../UserContext";
 import Error from "../Helpers/Error";
+import body from "../../body";
 
 export default function LoginForm() {
     const fields = {
@@ -25,18 +26,7 @@ export default function LoginForm() {
             input.state.submit()
         );
 
-        if (!validations.includes(false)) {
-            const body = () => {
-                let body = {};
-
-                Object.keys(fields).forEach((key) => {
-                    body[key] = fields[key].state.value;
-                });
-                return body;
-            };
-
-            userLogin(body());
-        }
+        if (!validations.includes(false)) userLogin(body(fields));
     };
 
     return (
