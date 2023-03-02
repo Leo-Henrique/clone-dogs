@@ -8,7 +8,18 @@
     &__nav {
         display: flex;
         gap: 1.5rem;
-    
+
+        @include breakpoint("sm") {
+            padding: 0 1.2rem;
+            justify-content: center;
+            gap: 0;
+            flex-wrap: wrap;
+            width: 100%;
+            position: fixed;
+            inset: auto 0 0;
+            box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.16);
+
+        }
         a,
         button {
             display: flex;
@@ -23,7 +34,7 @@
             background-color: color("supportLight2");
             border: 1px solid transparent;
             box-shadow: initial;
-            @include transition("button", background-color, border, box-shadow);
+            @include transition("button", background-color, border, box-shadow, color);
             @mixin state {
                 background-color: color("supportLight1");
                 border-color: color("supportDark2");
@@ -37,11 +48,34 @@
             &:focus {
                 @include state;
             }
+
+            @include breakpoint("sm") {
+                flex: 1;
+                flex-direction: column;
+                justify-content: flex-start;
+                row-gap: 0.4rem;
+                background-color: initial;
+                width: initial;
+                height: initial;
+                padding: 1rem 1.4rem;
+                text-align: center;
+                font-size: 1.2rem;
+                line-height: 1.3;
+                white-space: nowrap;
+            }
+
             &.active {
-                background: color("supportLight1");
+                background-color: color("supportLight1");
                 box-shadow: 0 0 0 3px color("primaryLight2");
                 border-color: color("primary");
     
+                @include breakpoint("sm") {
+                    background-color: initial;
+                    box-shadow: initial;
+                    border: initial;
+
+                    color: color("primary");
+                }
                 path, rect {
                     fill: color("primary");
                 }

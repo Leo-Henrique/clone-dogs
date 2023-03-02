@@ -3,16 +3,20 @@ import React from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Home from "./hooks/Home";
+import Home from "./components/Home";
 import Login from "./components/Login/Login";
-import { UserStorage } from "./UserContext";
+import { UserContext } from "./UserContext";
 import LeoAnimate from "leo-animate.js";
 import ProtectedRoute from "./components/Helpers/ProtectedRoute";
 import User from "./components/User/User";
+import UserHeaderNav from "./components/User/UserHeaderNav";
+import useMobile from "./hooks/useMobile";
 
 export default function App() {
     const location = useLocation();
     const navigation = useNavigate();
+    const { login } = React.useContext(UserContext);
+    const { mobile } = useMobile();
 
     React.useEffect(() => {
         const duration = 300;
@@ -25,31 +29,40 @@ export default function App() {
                 const { href } = event.currentTarget;
                 const { origin } = window.location;
                 const path = href.replace(origin, "");
-    
+
                 event.preventDefault();
                 animate.classList.remove("--animated");
                 setTimeout(() => navigation(path), duration);
             }
-        }
+        };
 
-        links.forEach(link => link.addEventListener("click", change));
+        links.forEach((link) => link.addEventListener("click", change));
 
         new LeoAnimate(options);
-        return () => links.forEach(link => link.removeEventListener("click", change));
-    }, 
-    [location])
+        return () =>
+            links.forEach((link) =>
+                link.removeEventListener("click", change)
+            );
+    }, [location]);
 
     return (
-        <UserStorage>
+        <>
             <Header />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="login/*" element={<Login />} />
-                <Route path="account/*" element={(
-                    <ProtectedRoute><User /></ProtectedRoute>
-                )} />
+                <Route
+                    path="account/*"
+                    element={
+                        <ProtectedRoute>
+                            <User />
+                        </ProtectedRoute>
+                    }
+                />
             </Routes>
+
+            {login && mobile && <UserHeaderNav />}
             <Footer />
-        </UserStorage>
+        </>
     );
 }

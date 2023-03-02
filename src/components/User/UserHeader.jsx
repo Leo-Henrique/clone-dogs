@@ -1,42 +1,26 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { UserContext } from "../../UserContext";
-import SVGFeed from "../../assets/icons/feed.svg"
-import SVGStatistics from "../../assets/icons/statistics.svg"
-import SVGPost from "../../assets/icons/post.svg"
-import SVGLogout from "../../assets/icons/logout.svg"
-
+import { useLocation } from "react-router-dom";
+import UserHeaderNav from "./UserHeaderNav";
 
 export default function UserHeader() {
-    const { userLogout } = React.useContext(UserContext);
+    const [title, setTitle] = React.useState(null);
+    const location = useLocation();
+
+    React.useEffect(() => {
+        const titles = {
+            "/account": "Minha conta",
+            "/account/statistics": "Estatísticas da conta",
+            "/account/post": "Postar uma foto"
+        }
+        
+        setTitle(titles[location.pathname]);
+    }, [location])
 
     return (
         <header className="userHeader">
-            <h1 className="h1">
-                Minha conta
-            </h1>
+            <h1 className="h1">{title}</h1>
 
-            <nav className="userHeader__nav">
-                <NavLink to="/account"
-                aria-label="Minhas fotos" end>
-                    <SVGFeed />
-                </NavLink>
-
-                <NavLink to="/account/statistics" 
-                aria-label="Estatísticas da conta">
-                    <SVGStatistics />
-                </NavLink>
-
-                <NavLink to="/account/post"
-                aria-label="Adicionar uma foto">
-                    <SVGPost />
-                </NavLink>
-
-                <button onClick={userLogout}
-                aria-label="Sair da conta">
-                    <SVGLogout />
-                </button>
-            </nav>
+            <UserHeaderNav />
         </header>
     );
 }
