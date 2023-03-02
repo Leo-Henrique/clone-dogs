@@ -20,13 +20,16 @@ export default function App() {
         const links = document.querySelectorAll("a");
         const change = (event) => {
             const animate = document.querySelector("[data-animate]");
-            const { href } = event.currentTarget;
-            const { origin } = window.location;
-            const path = href.replace(origin, "");
 
-            event.preventDefault();
-            animate.classList.remove("--animated");
-            setTimeout(() => navigation(path), duration);
+            if (animate) {
+                const { href } = event.currentTarget;
+                const { origin } = window.location;
+                const path = href.replace(origin, "");
+    
+                event.preventDefault();
+                animate.classList.remove("--animated");
+                setTimeout(() => navigation(path), duration);
+            }
         }
 
         links.forEach(link => link.addEventListener("click", change));
