@@ -22,22 +22,20 @@
     }
     &__logo,
     &__login {
-        @include state(
-            (
-                default: color("supportDark2"),
-                hover: color("primaryLight1"),
-                active: color("primary"),
+        @include state((
+            default: ( 
+                color: color("supportDark2"),
+                fill: color("supportDark2"),
             ),
-            color
-        );
-        @include state(
-            (
-                default: color("supportDark2"),
-                hover: color("primaryLight1"),
-                active: color("primary"),
+            hover: (
+                color: color("primaryLight1"),
+                fill: color("primaryLight1"),
             ),
-            fill
-        );
+            active: (
+                color: color("primary"),
+                fill: color("primary"),
+            )
+        ));
     }
     &__logo {
         display: block;

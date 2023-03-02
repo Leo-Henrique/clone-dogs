@@ -63,10 +63,11 @@
                 }
 
             } @else if $state == hover {
-                &:hover #{$isSVG} {
-                    #{$property}: $value;
+                @include desktop {
+                    &:hover #{$isSVG} {
+                        #{$property}: $value;
+                    }
                 }
-
             } @else if $state == active {
                 &:active #{$isSVG} {
                     #{$property}: $value;
