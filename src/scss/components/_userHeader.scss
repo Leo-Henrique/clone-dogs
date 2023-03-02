@@ -1,0 +1,51 @@
+.userHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 5rem;
+    padding: 2rem 0;
+
+    &__nav {
+        display: flex;
+        gap: 1.5rem;
+    
+        a,
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid transparent;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            outline: none;
+            cursor: pointer;
+            background-color: color("supportLight2");
+            border: 1px solid transparent;
+            box-shadow: initial;
+            @include transition("button", background-color, border, box-shadow);
+            @mixin state {
+                background-color: color("supportLight1");
+                border-color: color("supportDark2");
+                box-shadow: 0 0 0 3px color("supportLight2");
+            }
+            @include desktop {
+                &:hover {
+                    @include state;
+                }
+            };
+            &:focus {
+                @include state;
+            }
+            &.active {
+                background: color("supportLight1");
+                box-shadow: 0 0 0 3px color("primaryLight2");
+                border-color: color("primary");
+    
+                path, rect {
+                    fill: color("primary");
+                }
+            }
+        }
+    }
+}
