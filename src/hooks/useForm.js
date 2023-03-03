@@ -4,6 +4,10 @@ const validation = {
     email: {
         regex: /leonardo/,
         msg: "O e-mail é inválido!"
+    },
+    number: {
+        regex: /^\d{1,3}$/,
+        msg: "Utilize números válidos!"
     }
 }
 

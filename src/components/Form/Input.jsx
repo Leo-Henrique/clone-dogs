@@ -3,6 +3,7 @@ import React from "react";
 export default function Input({
     id,
     label,
+    type,
     value,
     onChange,
     error,
@@ -16,6 +17,7 @@ export default function Input({
 
             <input
                 className="input__field"
+                type={type}
                 name={id}
                 id={id}
                 value={value}

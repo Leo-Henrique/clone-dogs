@@ -37,3 +37,13 @@ export const USER_POST = (body) => {
         },
     };
 };
+export const PHOTO_POST = (form, token) => {
+    return {
+        URL: `${API_URL}/api/photo`,
+        options: {
+            method: "POST",
+            headers: { Authorization: `Bearer ${token}` },
+            body: form
+        },
+    };
+};
