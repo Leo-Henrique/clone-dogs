@@ -6,22 +6,19 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Login from "./components/Login/Login";
 import { UserContext } from "./UserContext";
-import LeoAnimate from "leo-animate.js";
 import ProtectedRoute from "./components/Helpers/ProtectedRoute";
 import User from "./components/User/User";
 import UserHeaderNav from "./components/User/UserHeaderNav";
 import useMobile from "./hooks/useMobile";
+import { useAnimation } from "./hooks/useAnimation";
 
-export default function App() {
+export default function App({ container }) {
     const location = useLocation();
     const navigation = useNavigate();
     const { login } = React.useContext(UserContext);
     const { mobile } = useMobile();
-
-    React.useEffect(() => {
-        const duration = 300;
-        const options = { transitions: { duration: `${duration}ms` } };
-        const links = document.querySelectorAll("a");
+    const changingRoute = () => {
+        let links = document.querySelectorAll("a");;
         const change = (event) => {
             const animate = document.querySelector("[data-animate]");
 
@@ -32,18 +29,18 @@ export default function App() {
 
                 event.preventDefault();
                 animate.classList.remove("--animated");
-                setTimeout(() => navigation(path), duration);
+                setTimeout(() => navigation(path), 300);
             }
         };
+        const start = () => {
+            links = document.querySelectorAll("a");
+            links.forEach(link => link.addEventListener("click", change));
+        }
+        const end = () => links.forEach(link => link.removeEventListener("click", change));
 
-        links.forEach((link) => link.addEventListener("click", change));
-
-        new LeoAnimate(options);
-        return () =>
-            links.forEach((link) =>
-                link.removeEventListener("click", change)
-            );
-    }, [location]);
+        useAnimation([location], start, end);
+    }
+    changingRoute();
 
     return (
         <>

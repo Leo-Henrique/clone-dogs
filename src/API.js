@@ -47,3 +47,16 @@ export const PHOTO_POST = (form, token) => {
         },
     };
 };
+export const PHOTOS_GET = ({ page, total, user }) => {
+    const pageS = `page=${page}`;
+    const totalS = `total=${total}`;
+    const userS = `user=${user}`;
+
+    return {
+        URL: `${API_URL}/api/photo?_${pageS}&_${totalS}&_${userS}`,
+        options: {
+            method: "GET",
+            cache: "no-store"
+        },
+    };
+};

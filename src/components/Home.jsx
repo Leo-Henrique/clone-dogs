@@ -1,9 +1,14 @@
 import React from "react";
+import Feed from "./Feed/Feed"
 
-export default function Home(props) {
+export default function Home() {
+    
+    
     return (
-        <main data-animate="fadeDown">
+        <main className="container">
             <p>Home</p>
+
+            <Feed />
         </main>
     );
 }
