@@ -1,0 +1,49 @@
+.feed {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    gap: 1.6rem;
+    margin-bottom: 1.6rem;
+
+    @include breakpoint("sm") {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    &__item {
+        display: grid;
+        border-radius: 0.3rem;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    &__item:nth-child(2) {
+        grid-column: 2 / 4;
+        grid-row: span 2;
+
+        @include breakpoint("sm") {
+            grid-column: initial;
+            grid-row: initial;
+        }
+    }
+    &__img,
+    &__views {
+        grid-area: 1 / 1;
+    }
+    &__views {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: color("supportLight1");
+        background-color: rgba(0, 0, 0, 0.3);
+
+        @include state((
+            default: 0,
+            hover: 1,
+            active: 0.5,
+        ), opacity);
+
+        &__icon {
+            margin-right: 0.4rem;
+        }
+    }
+}

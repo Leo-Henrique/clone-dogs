@@ -12,7 +12,7 @@ import UserHeaderNav from "./components/User/UserHeaderNav";
 import useMobile from "./hooks/useMobile";
 import { useAnimation } from "./hooks/useAnimation";
 
-export default function App({ container }) {
+export default function App() {
     const location = useLocation();
     const navigation = useNavigate();
     const { login } = React.useContext(UserContext);
