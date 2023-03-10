@@ -3,9 +3,10 @@ import LeoAnimate from "leo-animate.js";
 
 
 export function useAnimation(dependency, callbackStart, callbackEnd) {
-    const duration = 300;
+    const animationDuration = 300;
+    const animationClass = "--animated";
     const options = { 
-        transitions: { duration: `${duration}ms` } 
+        transitions: { duration: `${animationDuration}ms` } 
     };
 
     React.useEffect(() => {
@@ -14,4 +15,6 @@ export function useAnimation(dependency, callbackStart, callbackEnd) {
         if (callbackStart) callbackStart();
         if (callbackEnd) return () => callbackEnd();
     }, [...dependency]);
+
+    return { animationDuration, animationClass }
 }

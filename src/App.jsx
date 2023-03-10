@@ -9,14 +9,14 @@ import { UserContext } from "./UserContext";
 import ProtectedRoute from "./components/Helpers/ProtectedRoute";
 import User from "./components/User/User";
 import UserHeaderNav from "./components/User/UserHeaderNav";
-import useMobile from "./hooks/useMobile";
+import useMedia from "./hooks/useMedia";
 import { useAnimation } from "./hooks/useAnimation";
 
 export default function App() {
     const location = useLocation();
     const navigation = useNavigate();
     const { login } = React.useContext(UserContext);
-    const { mobile } = useMobile();
+    const { media: mobile } = useMedia();
     const changingRoute = () => {
         let links = document.querySelectorAll("a");;
         const change = (event) => {

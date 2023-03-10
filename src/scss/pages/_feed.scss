@@ -5,6 +5,9 @@
     gap: 1.6rem;
     margin-bottom: 1.6rem;
 
+    @include breakpoint("md") {
+        padding-top: 2rem;
+    }
     @include breakpoint("sm") {
         grid-template-columns: 1fr 1fr;
     }

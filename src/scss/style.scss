@@ -8,7 +8,8 @@
 // global styles
 @import 
 "leo-reset.css",
-"/node_modules/leo-animate.js/dist/leo-animate.css",
+"libs/custom-leo-animate",
+"/node_modules/leo-animate.js/dist/leo-animate.scss",
 "base/typography";
 
 // layout
@@ -22,7 +23,9 @@
 "components/button",
 "components/input",
 "components/forms",
-"components/userHeader";
+"components/userHeader",
+"components/modal",
+"components/photoContent";
 
 // pages specific styles
 @import

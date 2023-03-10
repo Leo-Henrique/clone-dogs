@@ -1,0 +1,104 @@
+.photo {
+    $zIndexModal: map-get($zIndex, "modal");
+    $padding: 2rem;
+    $paddingHeader: 1.5rem $padding;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    @include breakpoint("md") {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 2rem;
+        padding: $paddingHeader;
+    }
+    &__img img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+
+        @include breakpoint("md") {
+            width: 100%;
+            height: 500px;
+        }
+        @include breakpoint("sm") {
+            height: 350px;
+        }
+    }
+    &__infos {
+        padding: $padding;
+        padding-bottom: 0;
+
+        @include breakpoint("md") {
+            padding: $paddingHeader;
+        }
+
+        &__author,
+        &__views {
+            display: inline-block;
+        }
+        &__author {
+            padding: 0.8rem 0;
+            @include state((
+                default: 1,
+                hover: 0.5,
+                active: 0.8,
+            ), opacity);
+        }
+        &__views {
+            opacity: 0.5;
+            float: right;
+
+            svg {
+                display: inline-block;
+                margin-right: 0.8rem;
+            }
+            path {
+                stroke: color("supportDark2");
+            }
+            circle {
+                fill: color("supportDark2");
+            }
+        }
+        &__title {
+            position: relative;
+            z-index: calc($zIndexModal + 1);
+            margin-bottom: 2rem;
+
+            @include breakpoint("md") {
+                margin: 0;
+            }
+            a {
+                @include state((
+                    default: 1,
+                    hover: 0.75,
+                    active: 0.9,
+                ), opacity)
+            }
+        }
+        &__details {
+            $gap: 1rem;
+            display: flex;
+            gap: $gap;
+            font-weight: 700;
+            @include font-size(1.8rem);
+
+            li:nth-child(even)::before {
+                content: "";
+                display: inline-block;
+                width: 2px;
+                height: 20px;
+                background-color: color("supportDark3");
+                vertical-align: middle;
+                margin-right: $gap;
+            }
+        }
+    }
+}
