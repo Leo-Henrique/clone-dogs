@@ -15,7 +15,10 @@ export default function FeedModal({ photo, setModalPhoto }) {
         if (target === currentTarget) {
             currentTarget.classList.remove("--show");
             dialog.classList.remove(animationClass);
-            setTimeout(() => setModalPhoto(null), animationDuration);
+            setTimeout(() => {
+                setModalPhoto(null);
+                document.body.classList.remove("modal-scrollbar");
+            }, animationDuration);
         }
     }
 

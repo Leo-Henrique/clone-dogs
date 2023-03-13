@@ -8,7 +8,8 @@ export default function FeedPhotosItem({ photo, setModalPhoto }) {
             const modal =  document.querySelector(".modal");
 
             modal.classList.add("--show");
-        }, 20)
+            document.body.classList.add("modal-scrollbar");
+        }, 20);
     };
     
     return (
