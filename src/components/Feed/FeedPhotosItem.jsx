@@ -1,22 +1,22 @@
 import React from "react";
 import SVGViews from "../../assets/icons/views.svg";
+import Image from "../Helpers/Image";
 
 export default function FeedPhotosItem({ photo, setModalPhoto }) {
     const openModal = () => {
         setModalPhoto(photo);
         setTimeout(() => {
-            const modal =  document.querySelector(".modal");
+            const modal = document.querySelector(".modal");
 
             modal.classList.add("--show");
             document.body.classList.add("modal-scrollbar");
         }, 20);
     };
-    
+
     return (
-        <li className="feed__item"
-        onClick={openModal}>
-            <img
-                className="feed__img "
+        <li className="feed__item" onClick={openModal}>
+            <Image
+                className="feed__img"
                 src={photo.src}
                 alt={photo.title}
             />
@@ -25,9 +25,7 @@ export default function FeedPhotosItem({ photo, setModalPhoto }) {
                 <div className="feed__views__icon">
                     <SVGViews />
                 </div>
-                <span className="feed__views__text">
-                    {photo.acessos}
-                </span>
+                <span className="feed__views__text">{photo.acessos}</span>
             </div>
         </li>
     );

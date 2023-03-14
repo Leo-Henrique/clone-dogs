@@ -27,7 +27,7 @@
             grid-row: initial;
         }
     }
-    &__img,
+    &__item > .skeleton,
     &__views {
         grid-area: 1 / 1;
     }

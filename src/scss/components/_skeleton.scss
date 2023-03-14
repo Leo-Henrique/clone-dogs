@@ -1,0 +1,36 @@
+.skeleton {
+    display: grid;
+
+    &__body {
+        $bg: #e8e8e8;
+        grid-area: 1/1; 
+        height: 100%;
+        background-color: $bg;
+        background-size: 200%;
+        background-image: linear-gradient(
+            90deg, 
+            $bg 0%,
+            color("supportLight1")  50%,
+            $bg 100%,
+        );
+        animation: skeleton 1.5s infinite linear;
+    }
+    &__img {
+        grid-area: 1/1;
+        opacity: 0;
+        @include transition("global", opacity);
+
+        &.--show {
+            opacity: 1;
+        }
+    }
+}
+
+@keyframes skeleton {
+    from {
+        background-position: 0;
+    }
+    to {
+        background-position: -200%;
+    }
+}

@@ -6,6 +6,7 @@ import useMedia from "../../hooks/useMedia";
 import { useAnimation } from "../../hooks/useAnimation";
 import { UserContext } from "../../UserContext";
 import PhotoDelete from "./PhotoDelete";
+import Image from "../Helpers/Image";
 
 export default function PhotoContent({ data }) {
     const user = React.useContext(UserContext);
@@ -45,7 +46,7 @@ export default function PhotoContent({ data }) {
             )}
 
             <div className="photo__img">
-                <img src={photo.src} alt={photo.title} />
+                <Image src={photo.src} alt={photo.title} />
             </div>
 
             <div className="photo__infos">
