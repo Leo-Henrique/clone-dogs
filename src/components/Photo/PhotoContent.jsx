@@ -56,7 +56,7 @@ export default function PhotoContent({ data }) {
                     </li>
                 </ul>
 
-                <PhotoComments id={photo.id} />
+                <PhotoComments id={photo.id} comments={comments} />
             </div>
         </div>
     );

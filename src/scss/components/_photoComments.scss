@@ -1,0 +1,87 @@
+.comments {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    &__list {
+        flex: 1 250px;
+        overflow-y: auto;
+        word-break: break-word;
+        margin: 3rem 0;
+    
+        @include breakpoint("md") {
+            margin: 2rem 0;
+            flex: 1 150px;
+        }
+        @include breakpoint("sm") {
+            margin: 2rem 0 1rem;
+            flex: 1 150px;
+        }
+        li {
+            margin-bottom: 0.8rem;
+            line-height: 1.2;
+        }
+    }
+    &__form {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: start;
+        margin: 1.6rem 0;
+
+        @include breakpoint("md") {
+            margin: 0;
+        }
+    
+        &__label textarea {
+            display: block;
+            width: 100%;
+            resize: none;
+            border-radius: 4px;
+            outline: none;
+
+            @include breakpoint("sm") {
+                &::placeholder{
+                    font-size: fontSize("bodySm");
+                }
+            }
+            
+            @include state((
+                default: (
+                    background-color: color("supportLight2"),
+                    border: 1px solid color("supportLight2"),
+                ),
+                hover: (
+                    background-color: color("supportLight1"),
+                    border-color: color("primary"),
+                ),
+                focus: (
+                    background-color: color("supportLight1"),
+                    border-color: color("primary"),
+                    box-shadow: 0 0 0 3px color("primaryLight2")
+                )
+            ))
+        }
+        &__btn {
+            cursor: pointer;
+            color: color("supportDark2");
+            padding: 0 1.6rem;
+            overflow: hidden;
+            outline: none;
+
+            path {
+                @include transition("button", fill, stroke);
+                
+            }
+            @include desktop {
+                &:hover path {
+                    fill: color("primary");
+                    stroke: color("primary");
+                }
+            }
+            &:focus path {
+                fill: color("primary");
+                stroke: color("primary");
+            }
+        }
+    }
+}

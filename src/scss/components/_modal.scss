@@ -23,7 +23,7 @@
         flex: 1;
         border-radius: 8px;
         background-color: color("supportLight1");
-        overflow-y: auto;
+        overflow: hidden;
 
         @include breakpoint("xxl") {
             max-width: 1000px;
