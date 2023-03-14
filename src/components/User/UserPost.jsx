@@ -9,17 +9,17 @@ import { useNavigate } from "react-router-dom";
 
 export default function UserPost() {
     const fields = {
-        name: {
+        nome: {
             label: "Nome",
             type: "text",
             state: useForm(),
         },
-        weight: {
+        peso: {
             label: "Peso",
             type: "number",
             state: useForm("number"),
         },
-        age: {
+        idade: {
             label: "Idade",
             type: "number",
             state: useForm("number"),
@@ -41,19 +41,15 @@ export default function UserPost() {
     const handleSubmit = async () => {
         const form = new FormData();
 
+        Object.keys(fields).forEach((id) => form.append(id, fields[id].state.value));
         form.append("img", img.raw);
-        Object.keys(fields).forEach((id) =>
-            form.append(id, fields[id].state.value)
-        );
 
         const { token } = localStorage;
         const { URL, options } = PHOTO_POST(form, token);
         request(URL, options);
     };
 
-    React.useEffect(() => {
-        if (data) navigate("/account");
-    }, [data, navigate])
+    React.useEffect(() => { if (data) navigate("/account")}, [data, navigate]);
 
     return (
         <div className="post">

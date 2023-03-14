@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function Button({ onClick, loading, text, loadingText,  }) {
+export default function Button({ onClick, loading, text, loadingText, className }) {
     return (
-        <button className="btn" 
+        <button className={className ? className : "btn"}
         type="button"
         disabled={loading}
         onClick={onClick}>

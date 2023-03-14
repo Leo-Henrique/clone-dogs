@@ -83,3 +83,12 @@ export const COMMENT_POST = (id, body, token) => {
         },
     };
 };
+export const PHOTO_DELETE = (id, token) => {
+    return {
+        URL: `${API_URL}/api/PHOTO/${id}`,
+        options: {
+            method: "DELETE",
+            headers: { Authorization: authorization(token) },
+        },
+    };
+};
