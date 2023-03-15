@@ -1,6 +1,6 @@
 import React from "react";
 import SVGViews from "../../assets/icons/views.svg";
-import Image from "../Helpers/Image";
+import Skeleton from "../Helpers/Skeleton";
 
 export default function FeedPhotosItem({ photo, setModalPhoto }) {
     const openModal = () => {
@@ -15,7 +15,7 @@ export default function FeedPhotosItem({ photo, setModalPhoto }) {
 
     return (
         <li className="feed__item" onClick={openModal}>
-            <Image
+            <Skeleton
                 className="feed__img"
                 src={photo.src}
                 alt={photo.title}

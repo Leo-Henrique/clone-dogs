@@ -6,7 +6,7 @@ import Error from "../Helpers/Error";
 import Loading from "../Helpers/Loading";
 import { useAnimation } from "../../hooks/useAnimation";
 
-export default function FeedPhotos({ setModalPhoto }) {
+export default function FeedPhotos({ user, setModalPhoto }) {
     const { data, loading, error, request } = useFetch();
 
     React.useEffect(() => {
@@ -14,7 +14,7 @@ export default function FeedPhotos({ setModalPhoto }) {
             const photos = { 
                 page: 1,
                 total: 6,
-                user: 0,
+                user
             }
             const { URL, options } = PHOTOS_GET(photos);
             const { response, data } =  await request(URL, options);
@@ -22,7 +22,7 @@ export default function FeedPhotos({ setModalPhoto }) {
         }
 
         requestPhotos();
-    }, [request]);
+    }, [request, user]);
     
     useAnimation([loading]);
 

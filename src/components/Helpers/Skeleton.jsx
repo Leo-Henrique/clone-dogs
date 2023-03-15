@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Image({ alt, src, className }) {
+export default function Skeleton({ alt, src }) {
     const [ skeleton, setSkeleton ] = React.useState(true);
     const load = ({ target }) => {
         setSkeleton(false)
