@@ -5,6 +5,10 @@
     gap: 1.6rem;
     margin-bottom: 1.6rem;
 
+    @include breakpoint("lg") {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
     @include breakpoint("md") {
         padding-top: 2rem;
     }
@@ -19,8 +23,10 @@
         cursor: pointer;
     }
     &__item:nth-child(2) {
-        grid-column: 2 / 4;
-        grid-row: span 2;
+        // @include breakpoint("xl") {
+            grid-column: 2 / 4;
+            grid-row: span 2;
+        // }
 
         @include breakpoint("sm") {
             grid-column: initial;
