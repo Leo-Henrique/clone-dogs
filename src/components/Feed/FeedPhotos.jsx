@@ -17,7 +17,6 @@ export default function FeedPhotos({ user, page, setModalPhoto, setInfinite }) {
             const { response, data } =  await request(URL, options);
             const responseOk = response && response.ok;
     
-            console.log("ativou");
             if (responseOk && data.length < total) setInfinite(false);
         }
 

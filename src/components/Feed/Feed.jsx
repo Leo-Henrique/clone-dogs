@@ -14,7 +14,6 @@ export default function Feed({ user }) {
                 const scroll = scrollY;
                 const height = document.body.offsetHeight - innerHeight;
     
-                // console.log(scroll, height)
                 if (scroll > height * .75 && !wait) {
                     setPages((pages) => [...pages, pages.length + 1]);
                     wait = true;

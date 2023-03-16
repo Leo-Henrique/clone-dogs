@@ -11,6 +11,7 @@ import User from "./components/User/User";
 import UserHeaderNav from "./components/User/UserHeaderNav";
 import useMedia from "./hooks/useMedia";
 import { useAnimation } from "./hooks/useAnimation";
+import Photo from "./components/Photo/Photo";
 
 export default function App() {
     const location = useLocation();
@@ -56,6 +57,7 @@ export default function App() {
                         </ProtectedRoute>
                     }
                 />
+                <Route path="photo/:id" element={<Photo />} />
             </Routes>
 
             {login && mobile && <UserHeaderNav />}

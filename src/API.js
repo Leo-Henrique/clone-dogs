@@ -70,6 +70,11 @@ export const PHOTO_GET = (id) => {
         },
     };
 };
+export const PHOTO_PAGE_GET = ({ id }) => {
+    return {
+        URL: `${API_URL}/api/photo/${id}`,
+    };
+};
 export const COMMENT_POST = (id, body, token) => {
     return {
         URL: `${API_URL}/api/comment/${id}`,

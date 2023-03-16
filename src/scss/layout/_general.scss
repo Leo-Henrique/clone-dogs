@@ -1,5 +1,9 @@
 body {
     padding-top: 7rem;
+
+    @include breakpoint("sm") {
+        padding-bottom: 7rem;
+    }
 }
 a {
     color: color("supportDark2");

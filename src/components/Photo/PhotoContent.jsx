@@ -8,7 +8,7 @@ import { UserContext } from "../../UserContext";
 import PhotoDelete from "./PhotoDelete";
 import Skeleton from "../Helpers/Skeleton";
 
-export default function PhotoContent({ data }) {
+export default function PhotoContent({ data, page }) {
     const user = React.useContext(UserContext);
     const { photo, comments } = data;
     const { media: breakpointMd } = useMedia(null, "(max-width: 767.98px)");
@@ -38,7 +38,7 @@ export default function PhotoContent({ data }) {
     return (
         <div className="modal__dialog photo"
         data-animate="zoomIn">
-            {breakpointMd && (
+            {(breakpointMd || page) && (
                 <div className="photo__header">
                     <Title />
                     <Author />
@@ -50,14 +50,14 @@ export default function PhotoContent({ data }) {
             </div>
 
             <div className="photo__infos">
-                {breakpointMd || <Author />}
+                {(breakpointMd || page) || <Author />}
 
                 <span className="photo__infos__views">
                     <SVGViews />
                     {photo.acessos}
                 </span>
 
-                {breakpointMd || <Title />}
+                {(breakpointMd || page) || <Title />}
 
                 <ul className="photo__infos__details">
                     <li>{photo.peso} kg</li>

@@ -1,0 +1,38 @@
+.photoPage {
+    margin-top: 2rem;
+
+    .photo {
+        max-height: initial;
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        position: relative; 
+
+        &__img {
+            min-height: initial;
+            height: initial;
+
+            img {
+                border-radius: 10px;
+                width: 100%;
+                height: 500px;
+
+                @include breakpoint("sm") {
+                    height: 350px;
+                }
+            }
+        }
+        &__infos {
+            padding: 2rem;
+            &__title {
+                margin: 0;
+            }
+            .comments__list {
+                max-height: 250px;
+                flex: initial;
+                margin: 2rem 0;
+            }
+        }
+    }
+}
