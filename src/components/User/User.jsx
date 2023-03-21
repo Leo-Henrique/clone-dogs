@@ -5,6 +5,8 @@ import Feed from "../Feed/Feed";
 import UserPost from "./UserPost";
 import UserStatistics from "./UserStatistics";
 import { UserContext } from "../../UserContext";
+import { NotFound } from "../NotFound";
+
 
 export default function User(props) {
     const { data } = React.useContext(UserContext);
@@ -17,6 +19,7 @@ export default function User(props) {
                 <Route path="/" element={<Feed user={data.id} />} />
                 <Route path="/post" element={<UserPost />} />
                 <Route path="/statistics" element={<UserStatistics />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </section>
     );

@@ -11,7 +11,7 @@ export default function UserProfile() {
                 {user}
             </h1>
 
-            <Feed />
+            <Feed user={user} />
         </section>
     );
 }

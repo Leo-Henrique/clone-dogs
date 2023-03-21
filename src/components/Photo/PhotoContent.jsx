@@ -19,7 +19,7 @@ export default function PhotoContent({ data, page }) {
             )
         } else {
             return (
-                <Link className="photo__infos__author" to={`/${photo.author}`}>
+                <Link className="photo__infos__author" to={`profile/${photo.author}`}>
                     @{photo.author}
                 </Link>
             );

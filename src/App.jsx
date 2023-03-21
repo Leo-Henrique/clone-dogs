@@ -13,6 +13,7 @@ import useMedia from "./hooks/useMedia";
 import { useAnimation } from "./hooks/useAnimation";
 import Photo from "./components/Photo/Photo";
 import UserProfile from "./components/User/UserProfile";
+import { NotFound } from "./components/NotFound";
 
 export default function App() {
     const location = useLocation();
@@ -59,7 +60,8 @@ export default function App() {
                     }
                 />
                 <Route path="photo/:id" element={<Photo />} />
-                <Route path="/:user" element={<UserProfile />} />
+                <Route path="profile/:user" element={<UserProfile />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
 
             {login && mobile && <UserHeaderNav />}

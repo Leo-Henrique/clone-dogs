@@ -6,6 +6,7 @@ import LoginForgotPass from "./LoginForgotPass.jsx";
 import { UserContext } from "../../UserContext";
 import { Navigate } from "react-router-dom"
 import imgLogin from "../../assets/images/login.jpg";
+import { NotFound } from "../NotFound";
 
 
 export default function Login() {
@@ -54,6 +55,7 @@ export default function Login() {
                     <Route path={paths.forgotPass}
                     element={<LoginForgotPass />} />
 
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </section>
         </div>
