@@ -12,6 +12,7 @@ import UserHeaderNav from "./components/User/UserHeaderNav";
 import useMedia from "./hooks/useMedia";
 import { useAnimation } from "./hooks/useAnimation";
 import Photo from "./components/Photo/Photo";
+import UserProfile from "./components/User/UserProfile";
 
 export default function App() {
     const location = useLocation();
@@ -58,6 +59,7 @@ export default function App() {
                     }
                 />
                 <Route path="photo/:id" element={<Photo />} />
+                <Route path="/:user" element={<UserProfile />} />
             </Routes>
 
             {login && mobile && <UserHeaderNav />}
