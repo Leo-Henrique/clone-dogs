@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import LoginRegister from "./LoginRegister.jsx";
 import LoginForgotPass from "./LoginForgotPass.jsx";
+import LoginPasswordReset from "./LoginPasswordReset.jsx";
 import { UserContext } from "../../UserContext";
 import { Navigate } from "react-router-dom"
 import imgLogin from "../../assets/images/login.jpg";
@@ -14,11 +15,12 @@ export default function Login() {
     const paths = {
         login: "login",
         register: "register",
-        forgotPass: "forgotPass"
+        forgotPass: "forgotPass",
+        resetPass: "resetPass"
     }
     const handleClass = () => {
         const { pathname } = useLocation();
-        const { login, register, forgotPass } = paths;
+        const { login, register, forgotPass, resetPass } = paths;
         let blockClass;
 
         switch (pathname) {
@@ -30,6 +32,9 @@ export default function Login() {
                 break;
             case forgotPass:
                 blockClass = forgotPass
+                break;
+            case forgotPass:
+                blockClass = resetPass
                 break;
         }
         return blockClass;
@@ -54,6 +59,9 @@ export default function Login() {
 
                     <Route path={paths.forgotPass}
                     element={<LoginForgotPass />} />
+
+                    <Route path={paths.resetPass}
+                    element={<LoginPasswordReset />} />
 
                     <Route path="*" element={<NotFound />} />
                 </Routes>

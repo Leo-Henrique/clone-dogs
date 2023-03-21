@@ -55,7 +55,7 @@ export default function LoginForm() {
                 <Error error={error} />
             </form>
 
-            <Link className="login__forgotPass" to="/login/password">
+            <Link className="login__forgotPass" to="/login/forgotPass">
                 Esqueci minha senha
             </Link>
 
