@@ -6,25 +6,26 @@ import useFetch from "../../hooks/useFetch";
 import { PASSWORD_RESET } from "../../API";
 import Error from "../Helpers/Error";
 import { useNavigate } from "react-router-dom";
+import Head from "../Helpers/Head";
 
 export default function LoginForgotPass() {
     const [login, setLogin] = React.useState("");
-    const [key, setKey] = React.useState(""); 
+    const [key, setKey] = React.useState("");
     const password = useForm();
     const { error, loading, request } = useFetch();
     const navigate = useNavigate();
     const submit = async () => {
         if (password.validate()) {
-            const { URL, options } = PASSWORD_RESET({ 
+            const { URL, options } = PASSWORD_RESET({
                 login,
                 key,
-                password: password.value
+                password: password.value,
             });
             const { response } = await request(URL, options);
-    
+
             if (response.ok) navigate("/login");
         }
-    }
+    };
 
     React.useEffect(() => {
         const params = new URLSearchParams(location.search);
@@ -37,23 +38,30 @@ export default function LoginForgotPass() {
 
     return (
         <section>
+            <Head
+                title="Altere sua senha"
+                desc="Alterar senha da sua conta."
+            />
             <h1 className="h1">Alterar sua senha</h1>
             <form>
-                <Input label="Nova senha"
-                type="password"
-                id="password"
-                name="password"
-                value={password.value} 
-                onChange={password.onChange} />
+                <Input
+                    label="Nova senha"
+                    type="password"
+                    id="password"
+                    name="password"
+                    value={password.value}
+                    onChange={password.onChange}
+                />
 
-                <Button onClick={submit} 
-                loading={loading}
-                text="Alterar senha" 
-                loadingText="Alterando..."
+                <Button
+                    onClick={submit}
+                    loading={loading}
+                    text="Alterar senha"
+                    loadingText="Alterando..."
                 />
             </form>
 
-            <Error error={error} /> 
+            <Error error={error} />
         </section>
     );
 }

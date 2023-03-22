@@ -6,13 +6,14 @@ import UserPost from "./UserPost";
 import UserStatistics from "./UserStatistics";
 import { UserContext } from "../../UserContext";
 import { NotFound } from "../NotFound";
-
+import Head from "../Helpers/Head";
 
 export default function User(props) {
     const { data } = React.useContext(UserContext);
 
     return (
         <section className="container">
+            <Head title="Minha conta" desc="Publicações da sua conta." />
             <UserHeader />
 
             <Routes>

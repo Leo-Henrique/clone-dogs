@@ -6,6 +6,7 @@ import useForm from "../../hooks/useForm";
 import { UserContext } from "../../UserContext";
 import Error from "../Helpers/Error";
 import body from "../../body";
+import Head from "../Helpers/Head";
 
 export default function LoginForm() {
     const fields = {
@@ -31,8 +32,12 @@ export default function LoginForm() {
 
     return (
         <>
+            <Head
+                title="Login"
+                desc="Acesse sua conta."
+            />
             <h1 className="h1">Entrar</h1>
-
+            
             <form className="login__form">
                 {Object.keys(fields).map((id) => (
                     <Input

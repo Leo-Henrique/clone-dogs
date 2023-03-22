@@ -7,6 +7,7 @@ import { USER_POST } from "../../API";
 import body from "../../body";
 import useFetch from "../../hooks/useFetch";
 import Error from "../Helpers/Error";
+import Head from "../Helpers/Head";
 
 export default function LoginRegister() {
     const fields = {
@@ -27,9 +28,9 @@ export default function LoginRegister() {
         },
     };
     const { userLogin } = React.useContext(UserContext);
-    const { loading, error, request } = useFetch()
+    const { loading, error, request } = useFetch();
     const handleSubmit = async () => {
-        const { URL, options } = USER_POST(body(fields))
+        const { URL, options } = USER_POST(body(fields));
         const { response } = await request(URL, options);
 
         if (response.ok) userLogin(body(fields));
@@ -37,6 +38,7 @@ export default function LoginRegister() {
 
     return (
         <>
+            <Head title="Crie uma conta" desc="Registrar-se na rede." />
             <h1 className="h1">Cadastre-se</h1>
 
             <form>
@@ -51,12 +53,13 @@ export default function LoginRegister() {
                     />
                 ))}
 
-                <Button 
-                type="button"
-                onClick={handleSubmit}
-                loading={loading}
-                text="Cadastrar"
-                loadingText="Cadastrando..." />
+                <Button
+                    type="button"
+                    onClick={handleSubmit}
+                    loading={loading}
+                    text="Cadastrar"
+                    loadingText="Cadastrando..."
+                />
 
                 <Error error={error} />
             </form>

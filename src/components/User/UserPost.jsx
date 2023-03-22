@@ -6,6 +6,7 @@ import Button from "../Form/Button";
 import Error from "../Helpers/Error";
 import { PHOTO_POST } from "../../API";
 import { useNavigate } from "react-router-dom";
+import Head from "../Helpers/Head";
 
 export default function UserPost() {
     const fields = {
@@ -53,6 +54,11 @@ export default function UserPost() {
 
     return (
         <div className="post">
+            <Head
+                title="Postar uma foto"
+                desc="Poste uma foto na rede."
+            />
+
             <form className="post__form" data-animate="fadeRight">
                 {Object.keys(fields).map((id) => {
                     const field = fields[id];

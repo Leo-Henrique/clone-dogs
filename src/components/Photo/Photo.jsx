@@ -5,6 +5,7 @@ import useFetch from "../../hooks/useFetch";
 import Error from "../Helpers/Error";
 import Loading from "../Helpers/Loading";
 import PhotoContent from "./PhotoContent";
+import Head from "../Helpers/Head";
 
 export default function Photo() {
     const { id } = useParams();
@@ -21,8 +22,12 @@ export default function Photo() {
     if (data) {
         return (
             <section className="photoPage container">
+                <Head
+                    title={data.photo.title}
+                    desc={`Foto de ${data.photo.title}.`}
+                />
                 <PhotoContent data={data} page={true} />
             </section>
-        )
+        );
     } else return null;
 }
