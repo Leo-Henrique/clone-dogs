@@ -43,29 +43,46 @@ export default function App() {
 
         useAnimation([location], start, end);
     }
+    const app = React.useRef();
+    const footer = React.useRef();
+    // const footer = React.forwardRef();
     changingRoute();
 
+    React.useEffect(() => {
+        const applyHeight = () => {
+            const footerHeight = footer.current.clientHeight;
+
+            app.current.style.minHeight = `calc(100vh + ${footerHeight}px)`;
+        }
+
+        applyHeight();
+        window.addEventListener("resize", applyHeight)
+    }, []);
+
     return (
-        <>
+        <div className="app" ref={app}>
             <Header />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="login/*" element={<Login />} />
-                <Route
-                    path="account/*"
-                    element={
-                        <ProtectedRoute>
-                            <User />
-                        </ProtectedRoute>
-                    }
-                />
-                <Route path="photo/:id" element={<Photo />} />
-                <Route path="profile/:user" element={<UserProfile />} />
-                <Route path="*" element={<NotFound />} />
-            </Routes>
+
+            <main className="app__body">
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="login/*" element={<Login />} />
+                    <Route
+                        path="account/*"
+                        element={
+                            <ProtectedRoute>
+                                <User />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route path="photo/:id" element={<Photo />} />
+                    <Route path="profile/:user" element={<UserProfile />} />
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+            </main>
 
             {login && mobile && <UserHeaderNav />}
-            <Footer />
-        </>
+            <Footer ref={footer} />
+        </div>
     );
 }

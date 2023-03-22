@@ -1,0 +1,9 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    // min-height: calc()
+
+    &__body {
+        flex: 1;
+    }
+}

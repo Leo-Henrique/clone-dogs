@@ -20,6 +20,7 @@
 
 // components / widgets
 @import 
+"components/app",
 "components/button",
 "components/input",
 "components/forms",
@@ -28,7 +29,8 @@
 "components/photoContent",
 "components/photoComments",
 "components/skeleton",
-"components/loading";
+"components/loading",
+"components/footer";
 
 // pages specific styles
 @import

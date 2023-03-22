@@ -1,0 +1,38 @@
+.footer {
+    background-color: color("primary");
+    padding: 3rem 0;
+    text-align: center;
+    color: color("secondary");
+
+    &__icon {
+        margin-bottom: 1.6rem;
+        svg {
+            width: 30px;
+            height: auto;
+            @include center;
+        }
+        path {
+            fill: color("supportDark2");
+        }
+    }
+    &__texts {
+        span {
+            @include transition("button", color);
+
+        }
+        &:hover span {
+            @include desktop {
+                color: color("supportDark1");
+            }
+        }
+    }
+    a {
+        display: inline-block;
+        padding: 0.2rem 0;
+        @include state((
+            default: color("supportDark2"),
+            hover: color("supportDark1"),
+            active: color("supportDark4")
+        ), color);
+    }
+}
