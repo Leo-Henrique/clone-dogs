@@ -7,19 +7,9 @@ import SVGPost from "../../assets/icons/post.svg";
 import SVGLogout from "../../assets/icons/logout.svg";
 import useMedia from "../../hooks/useMedia";
 
-export default function UserHeaderNav() {
+const UserHeaderNav = React.forwardRef((props, ref) => {
     const { userLogout } = React.useContext(UserContext);
-    const { media: mobile } = useMedia(setHeight);
-    const element = React.useRef();
-    function setHeight() {
-        const nav = element.content;
-
-        if (mobile && nav) {
-            const height = nav.clientHeight.toString().slice(0, -1);
-
-            document.body.style.paddingBottom = `${height}rem`;
-        }
-    }
+    const { media: mobile } = useMedia();
     const links = [
         {
             label: "Minhas fotos",
@@ -52,7 +42,7 @@ export default function UserHeaderNav() {
     };
 
     return (
-        <nav className="userHeader__nav" ref={element}>
+        <nav className="userHeader__nav" ref={ref}>
             {links.map((link, index) => {
                 const ariaLabel = !mobile && { "aria-label": link.label };
 
@@ -81,4 +71,6 @@ export default function UserHeaderNav() {
             })}
         </nav>
     );
-}
+});
+
+export default UserHeaderNav;

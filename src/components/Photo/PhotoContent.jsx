@@ -11,7 +11,7 @@ import Skeleton from "../Helpers/Skeleton";
 export default function PhotoContent({ data, page }) {
     const user = React.useContext(UserContext);
     const { photo, comments } = data;
-    const { media: breakpointMd } = useMedia(null, "(max-width: 767.98px)");
+    const { media: breakpointMd } = useMedia(null, [], "(max-width: 767.98px)");
     const Author = () => {
         if (user.data && user.data.username === photo.author) {
             return (

@@ -19,7 +19,7 @@ export default function App() {
     const location = useLocation();
     const navigation = useNavigate();
     const { login } = React.useContext(UserContext);
-    const { media: mobile } = useMedia();
+    const { media: mobile } = useMedia(applyHeight, [login]);
     const changingRoute = () => {
         let links = document.querySelectorAll("a");;
         const change = (event) => {
@@ -44,20 +44,21 @@ export default function App() {
         useAnimation([location], start, end);
     }
     const app = React.useRef();
+    const navMobile = React.useRef();
     const footer = React.useRef();
-    // const footer = React.forwardRef();
+    function applyHeight() {
+        const footerHeight = footer.current.clientHeight;
+
+        app.current.style.minHeight = `calc(100vh + ${footerHeight}px)`;
+    
+        if (login && matchMedia("(max-width: 575.98px)").matches && navMobile.current) {
+            const navHeight = navMobile.current.clientHeight;
+
+            app.current.style.paddingBottom = `${navHeight}px`;
+        } else app.current.style.paddingBottom = 0;
+    }
+
     changingRoute();
-
-    React.useEffect(() => {
-        const applyHeight = () => {
-            const footerHeight = footer.current.clientHeight;
-
-            app.current.style.minHeight = `calc(100vh + ${footerHeight}px)`;
-        }
-
-        applyHeight();
-        window.addEventListener("resize", applyHeight)
-    }, []);
 
     return (
         <div className="app" ref={app}>
@@ -81,7 +82,7 @@ export default function App() {
                 </Routes>
             </main>
 
-            {login && mobile && <UserHeaderNav />}
+            {login && mobile && <UserHeaderNav ref={navMobile} />}
             <Footer ref={footer} />
         </div>
     );
