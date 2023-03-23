@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import UserHeader from "./UserHeader";
 import Feed from "../Feed/Feed";
 import UserPost from "./UserPost";
-import UserStatistics from "./UserStatistics";
+import UserStats from "./UserStats";
 import { UserContext } from "../../UserContext";
 import { NotFound } from "../NotFound";
 import Head from "../Helpers/Head";
@@ -19,7 +19,7 @@ export default function User(props) {
             <Routes>
                 <Route path="/" element={<Feed user={data.id} />} />
                 <Route path="/post" element={<UserPost />} />
-                <Route path="/statistics" element={<UserStatistics />} />
+                <Route path="/statistics" element={<UserStats />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </section>
