@@ -1,4 +1,4 @@
-# Rede social com React
+# Rede social / SPA com React
 
 Este é um projeto do [curso de React da Origamid](https://www.origamid.com/curso/react-completo/).
 
