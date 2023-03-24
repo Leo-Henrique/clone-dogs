@@ -41,7 +41,7 @@ export function UserStorage({ children }) {
 
             localStorage["token"] = token;
             await getUser(token);
-            navigate("./account")
+            navigate("./")
 
         } catch (error) {
             setError(error.message);

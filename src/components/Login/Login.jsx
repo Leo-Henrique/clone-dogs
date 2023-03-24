@@ -45,7 +45,7 @@ export default function Login() {
         <div className="forms">
             <div className="forms__img">
                 <img src={imgLogin} 
-                alt="Um gato com um pequeno chapéu amarelo" />
+                alt="Um cachorro com uma touca amarela" />
             </div>
 
             <section className={`forms__content ${handleClass()}`}

@@ -36,7 +36,7 @@ export default function Header() {
 			<div className="header__container container">
                 <Link className="header__logo"
                 to="/"
-                aria-label="Ícone delineado representando o rosto de um gato">
+                aria-label="Ícone representando o rosto de um cachorro">
                     <SVGLogo />
                 </Link>
                 

@@ -7,8 +7,8 @@ export default function Home() {
         <main className="container">
             <Head
                 isHome={true}
-                title="Clone Cats | Leonardo Henrique"
-                desc="Simulação de uma rede social de gatos, desenvolvido em React."
+                title="Clone Dogs | Leonardo Henrique"
+                desc="Simulação de uma rede social de cachorros, desenvolvido em React."
             />
             <Feed />
         </main>

@@ -22,18 +22,6 @@ const Footer = React.forwardRef((props, ref) => {
                         </a>
                         .
                     </p>
-
-                    <p>
-                        Desafio do {"\n"}
-                        <a
-                            href="https://www.frontendmentor.io/"
-                            target="_blank"
-                            rel="external noopener noreferrer"
-                        >
-                            Frontend Mentor
-                        </a>
-                        .
-                    </p>
                 </div>
             </div>
         </footer>
