@@ -9,5 +9,5 @@ export default defineConfig({
 		react(), 
 		viteSvgr(viteSvgrConfigs)
 	],
-	// base: "/clone-cats"
+	base: "./"
 });
